@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.mkyong.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.mkyong.com" xmlns:intf="http://ws.mkyong.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.mkyong.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getHelloWorld">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getHelloWorldResponse">
+    <complexType>
+     <sequence>
+      <element name="getHelloWorldReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getHello">
+    <complexType/>
+   </element>
+   <element name="getHelloResponse">
+    <complexType>
+     <sequence>
+      <element name="getHelloReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getHelloWorldRequest">
+
+      <wsdl:part element="impl:getHelloWorld" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getHelloWorldResponse">
+
+      <wsdl:part element="impl:getHelloWorldResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getHelloRequest">
+
+      <wsdl:part element="impl:getHello" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getHelloResponse">
+
+      <wsdl:part element="impl:getHelloResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="HelloWorld">
+
+      <wsdl:operation name="getHelloWorld">
+
+         <wsdl:input message="impl:getHelloWorldRequest" name="getHelloWorldRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getHelloWorldResponse" name="getHelloWorldResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getHello">
+
+         <wsdl:input message="impl:getHelloRequest" name="getHelloRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getHelloResponse" name="getHelloResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="HelloWorldSoapBinding" type="impl:HelloWorld">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getHelloWorld">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getHelloWorldRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getHelloWorldResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getHello">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getHelloRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getHelloResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="HelloWorldService">
+
+      <wsdl:port binding="impl:HelloWorldSoapBinding" name="HelloWorld">
+
+         <wsdlsoap:address location="http://localhost:8080/WebServicesExample/services/HelloWorld"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
